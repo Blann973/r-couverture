@@ -119,3 +119,38 @@ nav a.actif{color:var(--or)}
 .appel{display:none;position:fixed;right:16px;bottom:16px;z-index:20;width:56px;height:56px;border-radius:50%;background:var(--or);color:#fff;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 @media(max-width:900px){.appel{display:grid}footer{padding-bottom:88px}}
 @media(prefers-reduced-motion:reduce){.hero .wrap>*{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+
+/* Corrections : nouvelle structure */
+.chapo{font-family:var(--serif);font-size:1.35rem;color:var(--marine);margin-bottom:16px}
+.accent{font-family:var(--serif);font-size:1.3rem;color:var(--marine)}
+.metiers{background:var(--marine)}
+.metiers .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding:0}
+.metiers a{color:#fff;text-align:center;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;padding:20px 8px;border-left:1px solid rgba(255,255,255,.2)}
+.metiers a:first-child{border-left:0}
+.metiers a:hover{background:var(--or)}
+.depts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.depts>div{background:#fff;border-top:3px solid var(--or);padding:24px 12px}
+.depts strong{display:block;font-family:var(--serif);font-weight:400;font-size:2.6rem;line-height:1;color:var(--marine);margin-bottom:6px}
+.urgence{background:var(--marine);color:#fff}
+.urgence h2,.urgence h3{color:#fff}
+.urgence p{color:#dbe3f0}
+.dispo{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start}
+.horaires{border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:28px}
+.horaires h3{font-size:1.2rem;margin-bottom:12px}
+.horaires strong{font-family:var(--serif);font-weight:400;font-size:1.9rem;color:#fff}
+.liste-conseils{list-style:none;padding:0;margin:32px auto 0;max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;text-align:left}
+.liste-conseils li{position:relative;padding-left:30px}
+.liste-conseils li::before{content:"✓";position:absolute;left:0;color:var(--or);font-weight:700}
+.histoire .texte{max-width:780px}
+.discret{flex-basis:100%;text-align:center;margin:0;font-size:.8rem;color:#9fb0cc}
+.wa{position:fixed;right:16px;bottom:16px;z-index:20;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.wa:hover{background:#1ebe5a}
+footer{padding-bottom:88px}
+@media(max-width:900px){.appel{bottom:84px}.dispo{grid-template-columns:1fr;gap:32px}}
+@media(max-width:700px){.metiers .wrap{grid-template-columns:1fr 1fr}.metiers a:nth-child(3){border-left:0}.metiers a:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}.depts{grid-template-columns:1fr 1fr}.liste-conseils{grid-template-columns:1fr}}
+
+.urgence details{border-top:1px solid rgba(255,255,255,.25);padding-top:8px;margin:20px 0 12px}
+.urgence summary{cursor:pointer;font-weight:700;color:#fff;padding:6px 0}
+.urgence ol{padding-left:20px;margin:8px 0 0;color:#dbe3f0}
+.urgence li{margin-bottom:6px}
+.urgence .engage{font-weight:600;color:#fff}

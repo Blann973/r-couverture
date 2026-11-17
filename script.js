@@ -12,7 +12,7 @@
 
   /* Apparition des blocs au défilement */
   if (io && !calme) {
-    var els = document.querySelectorAll('section h2,.grille4 article,.points>div,#devis form,.chiffres .wrap>div');
+    var els = document.querySelectorAll('section h2,.grille4 article,.depts>div,.horaires,.liste-conseils li,#devis form,.histoire .texte p');
     var obs = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
@@ -25,33 +25,16 @@
     });
   }
 
-  /* Chiffres qui comptent */
-  document.querySelectorAll('[data-count]').forEach(function (n) {
-    if (!io || calme) return;
-    var fin = +n.dataset.count, suf = n.dataset.suffix || '';
-    n.textContent = '0' + suf;
-    var o = new IntersectionObserver(function (es) {
-      if (!es[0].isIntersecting) return;
-      o.disconnect();
-      var t0 = performance.now();
-      (function p(t) {
-        var k = Math.min((t - t0) / 1200, 1);
-        n.textContent = Math.round(fin * (1 - Math.pow(1 - k, 3))) + suf;
-        if (k < 1) requestAnimationFrame(p);
-      })(t0);
-    });
-    o.observe(n);
-  });
-
   /* Lien du menu souligné selon la section affichée */
   var liens = document.querySelectorAll('nav a[href^="#"]:not(.cta)');
   function suivi() {
-    var y = scrollY + 140, cur = '#haut';
-    ['services', 'apropos', 'devis'].forEach(function (id) {
-      var s = document.getElementById(id);
-      if (s && s.offsetTop <= y) cur = '#' + id;
+    var y = scrollY + 140, best = null, pos = -1;
+    liens.forEach(function (a) {
+      var c = document.querySelector(a.getAttribute('href'));
+      var t = c ? c.offsetTop : 0;
+      if (t <= y && t >= pos) { pos = t; best = a; }
     });
-    liens.forEach(function (a) { a.classList.toggle('actif', a.getAttribute('href') === cur); });
+    liens.forEach(function (a) { a.classList.toggle('actif', a === best); });
   }
   addEventListener('scroll', suivi, { passive: true }); suivi();
 })();

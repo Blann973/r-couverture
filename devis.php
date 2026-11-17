@@ -1,8 +1,8 @@
 <?php
 // Envoie la demande de devis par email. À placer à côté de index.html.
-$destinataire = 'contact@rigueurcouverture.fr';
+$destinataire = 'rigueurcouverture.charpente@gmail.com';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !empty($_POST['site'])) {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !empty($_POST['_honey'])) {
     header('Location: index.html'); exit;
 }
 function champ($k) { return trim(str_replace(["\r", "\n"], ' ', strip_tags($_POST[$k] ?? ''))); }
