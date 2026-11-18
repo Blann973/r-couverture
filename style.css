@@ -163,3 +163,5 @@ footer{padding-bottom:88px}
 .conseils-duo.sans-image{grid-template-columns:1fr}
 .conseils-duo.sans-image .liste-conseils{grid-template-columns:1fr 1fr;max-width:900px;margin:20px auto 0}
 @media(max-width:900px){.conseils-duo{grid-template-columns:1fr}.conseils-duo.sans-image .liste-conseils{grid-template-columns:1fr}}
+
+.conseils-img img{aspect-ratio:4/3;object-fit:cover}
